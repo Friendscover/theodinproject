@@ -86,7 +86,7 @@
     cursor: pointer;
 
     @include media-breakpoint-down(sm) {
-      position: absolute;
+      position: absolute !important;
       top: 5px;
       right: 0;
     }
@@ -115,4 +115,11 @@
     }
   }
 
+  &__blank-slate {
+    text-align: center;
+    color: $grey;
+    font-weight: 700;
+    padding: 1.5em 0em 0.5em;
+    margin-bottom: 0;
+  }
 }

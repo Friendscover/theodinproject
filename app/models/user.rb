@@ -13,7 +13,8 @@ class User < ApplicationRecord
   has_many :completed_lessons, through: :lesson_completions, source: :lesson
   has_many :project_submissions, dependent: :destroy
   has_many :user_providers, dependent: :destroy
-  belongs_to :track
+  has_many :flags, foreign_key: :flagger_id, dependent: :destroy
+  belongs_to :path
 
   def progress_for(course)
     @progress ||= Hash.new { |hash, c| hash[c] = CourseProgress.new(c, self) }
@@ -36,6 +37,10 @@ class User < ApplicationRecord
 
   def inactive_message
     !banned? ? super : :banned
+  end
+
+  def dismissed_flags
+    flags.where(taken_action: :dismiss)
   end
 
   private

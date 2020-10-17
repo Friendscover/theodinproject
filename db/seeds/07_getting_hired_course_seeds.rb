@@ -97,7 +97,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/getting_hired/project_portfolio.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
 )
 
 # +++++++++++
@@ -146,7 +148,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/getting_hired/project_resume.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: false,
+  has_live_preview: false
 )
 
 lesson_position += 1

@@ -62,7 +62,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/rails_programming/introduction/installing_rails.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: false,
+  has_live_preview: false,
 )
 
 # +++++++++++
@@ -75,7 +77,7 @@ section = create_or_update_section(
   title_url: 'Rails Basics'.parameterize,
   course_id: course.id,
   position: section_position,
-  description: "It's time to start looking carefully into the foundational pieces of the Rails framework.  We'll cover the path of an HTTP request from entering your application to returning as an HTML page to the browser."
+  description: "It's time to start looking carefully into the foundational pieces of the Rails framework. We'll cover the path of an HTTP request from entering your application to returning as an HTML page to the browser."
 )
 
 lesson_position += 1
@@ -159,7 +161,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/rails_programming/rails_basics/project_blog_app.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true,
 )
 
 # +++++++++++
@@ -196,7 +200,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/rails_programming/databases_and_activerecord/project_ar_basics.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: false
 )
 
 # +++++++++++
@@ -233,7 +239,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/rails_programming/forms_and_authentication/project_forms.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: false
 )
 
 lesson_position += 1
@@ -257,7 +265,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/rails_programming/forms_and_authentication/project_auth.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
 )
 
 # +++++++++++
@@ -306,7 +316,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/rails_programming/advanced_forms_and_activerecord/project_associations.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
 )
 
 lesson_position += 1
@@ -342,7 +354,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/rails_programming/advanced_forms_and_activerecord/project_forms_advanced.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
 )
 
 # +++++++++++
@@ -351,11 +365,11 @@ create_or_update_lesson(
 
 section_position += 1
 section = create_or_update_section(
-  title: 'APIs, Mailers and Advanced Topics',
-  title_url: 'APIs, Mailers and Advanced Topics'.parameterize,
+  title: 'APIs',
+  title_url: 'APIs'.parameterize,
   course_id: course.id,
   position: section_position,
-  description: 'This final section will take you into some of the more interesting sides of the Rails ecosystem which will help you reach beyond your own app and into the lives of your users via email or harness the powers of other apps via their APIs.'
+  description: 'In this penultimate section we will explore harnessing the powers of other apps via their APIs and creating our own.'
 )
 
 lesson_position += 1
@@ -366,7 +380,7 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: false,
-  url: '/rails_programming/apis_mailers_advanced_topics/api_basics.md',
+  url: '/rails_programming/apis/api_basics.md',
   repo: 'curriculum'
 )
 
@@ -378,20 +392,49 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: false,
-  url: '/rails_programming/apis_mailers_advanced_topics/api_interfacing.md',
+  url: '/rails_programming/apis/api_interfacing.md',
   repo: 'curriculum'
 )
 
 lesson_position += 1
 create_or_update_lesson(
-  title: 'APIs',
-  title_url: 'APIs'.parameterize,
-  description: "In this project, you'll both build your own API and work with a third-party API.",
+  title: 'Kittens API',
+  title_url: 'Kittens API'.parameterize,
+  description: "In this project, you'll both build your own API",
   position: lesson_position,
   section_id: section.id,
   is_project: true,
-  url: '/rails_programming/apis_mailers_advanced_topics/project_apis.md',
-  repo: 'curriculum'
+  url: '/rails_programming/apis/project_kittens_api.md',
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
+)
+
+lesson_position += 1
+create_or_update_lesson(
+  title: 'Using an API',
+  title_url: 'Using an API'.parameterize,
+  description: "In this project, you'll work with a third-party API.",
+  position: lesson_position,
+  section_id: section.id,
+  is_project: true,
+  url: '/rails_programming/apis/project_using_an_api.md',
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
+)
+
+# +++++++++++
+# SECTION
+# +++++++++++
+
+section_position += 1
+section = create_or_update_section(
+  title: 'Mailers and Advanced Topics',
+  title_url: 'Mailers and Advanced Topics'.parameterize,
+  course_id: course.id,
+  position: section_position,
+  description: 'This final section will take you into some of the more interesting sides of the Rails ecosystem which will help you reach beyond your own app and into the lives of your users via email.'
 )
 
 lesson_position += 1
@@ -402,7 +445,7 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: false,
-  url: '/rails_programming/apis_mailers_advanced_topics/mailers.md',
+  url: '/rails_programming/mailers_advanced_topics/mailers.md',
   repo: 'curriculum'
 )
 
@@ -414,8 +457,10 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: true,
-  url: '/rails_programming/apis_mailers_advanced_topics/project_mailers.md',
-  repo: 'curriculum'
+  url: '/rails_programming/mailers_advanced_topics/project_mailers.md',
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
 )
 
 lesson_position += 1
@@ -426,7 +471,7 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: false,
-  url: '/rails_programming/apis_mailers_advanced_topics/advanced_topics.md',
+  url: '/rails_programming/mailers_advanced_topics/advanced_topics.md',
   repo: 'curriculum'
 )
 
@@ -438,8 +483,10 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: true,
-  url: '/rails_programming/apis_mailers_advanced_topics/project_final.md',
-  repo: 'curriculum'
+  url: '/rails_programming/mailers_advanced_topics/project_final.md',
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
 )
 
 lesson_position += 1
@@ -450,6 +497,6 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: false,
-  url: '/rails_programming/apis_mailers_advanced_topics/conclusion.md',
+  url: '/rails_programming/mailers_advanced_topics/conclusion.md',
   repo: 'curriculum'
 )

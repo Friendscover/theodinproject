@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_23_172005) do
+ActiveRecord::Schema.define(version: 2020_10_13_061108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,13 +94,39 @@ ActiveRecord::Schema.define(version: 2020_09_23_172005) do
     t.string "slug"
     t.string "repo"
     t.boolean "accepts_submission", default: false, null: false
+    t.boolean "has_live_preview", default: false, null: false
     t.index ["position"], name: "index_lessons_on_position"
     t.index ["slug", "section_id"], name: "index_lessons_on_slug_and_section_id", unique: true
   end
 
+  create_table "path_courses", id: :serial, force: :cascade do |t|
+    t.integer "path_id"
+    t.integer "course_id"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "paths", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "default", default: false
+    t.string "slug"
+    t.index ["slug"], name: "index_paths_on_slug", unique: true
+  end
+
+  create_table "points", force: :cascade do |t|
+    t.string "discord_id", null: false
+    t.integer "points", default: 0, null: false
+    t.index ["discord_id"], name: "index_points_on_discord_id", unique: true
+  end
+
   create_table "project_submissions", id: :serial, force: :cascade do |t|
     t.string "repo_url"
-    t.string "live_preview_url"
+    t.string "live_preview_url", default: "", null: false
     t.integer "user_id"
     t.integer "lesson_id"
     t.datetime "created_at", null: false
@@ -136,25 +162,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_172005) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "track_courses", id: :serial, force: :cascade do |t|
-    t.integer "track_id"
-    t.integer "course_id"
-    t.integer "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tracks", id: :serial, force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.integer "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "default", default: false
-    t.string "slug"
-    t.index ["slug"], name: "index_tracks_on_slug", unique: true
-  end
-
   create_table "user_providers", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.string "provider"
@@ -185,7 +192,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_172005) do
     t.string "unconfirmed_email"
     t.boolean "admin", default: false, null: false
     t.string "avatar"
-    t.integer "track_id", default: 1
+    t.integer "path_id", default: 1
     t.boolean "banned", default: false, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true

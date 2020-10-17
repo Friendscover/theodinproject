@@ -208,7 +208,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/web_development_101/git_basics/project_practicing_git_basics.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: false,
+  has_live_preview: false
 )
 
 # +++++++++++
@@ -269,7 +271,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/web_development_101/the_front_end/project_html_css.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
 )
 
 # +++++++++++
@@ -354,7 +358,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/web_development_101/javascript_basics/project_rock_paper_scissors.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
 )
 
 lesson_position += 1
@@ -402,8 +408,11 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/web_development_101/javascript_basics/project_etch_a_sketch.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
 )
+
 lesson_position += 1
 create_or_update_lesson(
   title: 'Fundamentals Part 5',
@@ -425,7 +434,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/web_development_101/javascript_basics/project_calculator.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
 )
 
 # +++++++++++

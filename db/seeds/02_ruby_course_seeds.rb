@@ -220,7 +220,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/ruby_programming/basic_ruby_projects/caesar_cipher.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: false
 )
 
 lesson_position += 1
@@ -232,7 +234,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/ruby_programming/basic_ruby_projects/sub_strings.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: false
 )
 
 lesson_position += 1
@@ -244,7 +248,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/ruby_programming/basic_ruby_projects/stock_picker.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: false
 )
 
 lesson_position += 1
@@ -256,7 +262,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/ruby_programming/basic_ruby_projects/bubble_sort.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: false
 )
 
 # +++++++++++
@@ -265,11 +273,11 @@ create_or_update_lesson(
 
 section_position += 1
 section = create_or_update_section(
-  title: 'Intermediate Ruby',
-  title_url: 'Intermediate Ruby'.parameterize,
+  title: 'Object Oriented Programming Basics',
+  title_url: 'Object Oriented Programming Basics'.parameterize,
   course_id: course.id,
   position: section_position,
-  description: "You've got tools in your Ruby tool box and now it's time to combine them into more meaningful programs.  In this section, you'll learn how to turn your spaghetti code into properly organized methods and classes.  You'll also learn how to serialize code and save it into files."
+  description: "You've got tools in your Ruby tool box and now it's time to combine them into more meaningful programs. In this section, you'll learn how to turn your spaghetti code into properly organized methods and classes."
 )
 
 lesson_position += 1
@@ -280,20 +288,49 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: false,
-  url: '/ruby_programming/intermediate_ruby/lesson_oop.md',
+  url: '/ruby_programming/object_oriented_programming_basics/lesson_oop.md',
   repo: 'curriculum'
 )
 
 lesson_position += 1
 create_or_update_lesson(
-  title: 'OOP',
-  title_url: 'OOP'.parameterize,
-  description: "It's time to flex those new muscles a bit by building Tic Tac Toe and Mastermind on the command line",
+  title: 'Tic Tac Toe',
+  title_url: 'Tic Tac Toe'.parameterize,
+  description: "It's time to flex those new muscles a bit by building Tic Tac Toe",
   position: lesson_position,
   section_id: section.id,
   is_project: true,
-  url: '/ruby_programming/intermediate_ruby/project_oop.md',
-  repo: 'curriculum'
+  url: '/ruby_programming/object_oriented_programming_basics/project_tic_tac_toe.md',
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
+)
+
+lesson_position += 1
+create_or_update_lesson(
+  title: 'Mastermind',
+  title_url: 'Mastermind'.parameterize,
+  description: 'In this project you will build the classic code breaking game Mastermind',
+  position: lesson_position,
+  section_id: section.id,
+  is_project: true,
+  url: '/ruby_programming/object_oriented_programming_basics/project_mastermind.md',
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
+)
+
+# +++++++++++
+# SECTION
+# +++++++++++
+
+section_position += 1
+section = create_or_update_section(
+  title: 'Files and Serialization',
+  title_url: 'Files and Serialization'.parameterize,
+  course_id: course.id,
+  position: section_position,
+  description: "In this section you'll take your Ruby skills to the next level by discovering how to serialize code and save it into files."
 )
 
 lesson_position += 1
@@ -304,7 +341,7 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: false,
-  url: '/ruby_programming/intermediate_ruby/lesson_serialization.md',
+  url: '/ruby_programming/files_and_serialization/lesson_serialization.md',
   repo: 'curriculum'
 )
 
@@ -316,8 +353,10 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: true,
-  url: '/ruby_programming/intermediate_ruby/project_event_manager.md',
-  repo: 'curriculum'
+  url: '/ruby_programming/files_and_serialization/project_event_manager.md',
+  repo: 'curriculum',
+  accepts_submission: false,
+  has_live_preview: false
 )
 
 lesson_position += 1
@@ -328,8 +367,10 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: true,
-  url: '/ruby_programming/intermediate_ruby/project_file_io.md',
-  repo: 'curriculum'
+  url: '/ruby_programming/files_and_serialization/project_file_io.md',
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
 )
 
 # +++++++++++
@@ -378,7 +419,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/ruby_programming/computer_science/project_recursion.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: false
 )
 
 lesson_position += 1
@@ -402,19 +445,37 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/ruby_programming/computer_science/project_linked_lists.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: false
 )
 
 lesson_position += 1
 create_or_update_lesson(
-  title: 'Data Structures and Algorithms',
-  title_url: 'Data Structures and Algorithms'.parameterize,
-  description: "If you're scratching your head a bit on how to apply algorithmic thinking, here's a couple of exercises that let you use the tools you've just developed.  This should also be helpful when thinking about Final Projects... hint hint...",
+  title: 'Binary Search Trees',
+  title_url: 'Binary Search Trees'.parameterize,
+  description: "In this project you'll get your hands dirty with one of the most common computer science problems, searching binary trees.",
   position: lesson_position,
   section_id: section.id,
   is_project: true,
-  url: '/ruby_programming/computer_science/project_data_structures_algorithms.md',
-  repo: 'curriculum'
+  url: '/ruby_programming/computer_science/project_binary_search_trees.md',
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: false
+)
+
+lesson_position += 1
+create_or_update_lesson(
+  title: 'Knights Travails',
+  title_url: 'Knights Travails'.parameterize,
+  description: 'Lets build Knights Travails',
+  position: lesson_position,
+  section_id: section.id,
+  is_project: true,
+  url: '/ruby_programming/computer_science/project_knights_travails.md',
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: false
 )
 
 # +++++++++++
@@ -463,7 +524,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/ruby_programming/testing_with_rspec/project_testing_your_ruby_code.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
 )
 
 # +++++++++++
@@ -525,7 +588,9 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: '/ruby_programming/conclusion/project_ruby_final.md',
-  repo: 'curriculum'
+  repo: 'curriculum',
+  accepts_submission: true,
+  has_live_preview: true
 )
 
 lesson_position += 1
